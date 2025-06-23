@@ -119,7 +119,7 @@ const getCurrentUserProfile = asyncHandler(async (req, res) => {
   try {
     const user = await User.findById(req.user._id).select("-password");
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
+      res.status(404).json({ message: "User not found" });
     }
 
     res.status(200).json({
@@ -140,7 +140,7 @@ const updateCurrentUserProfile = asyncHandler(async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
+      res.status(404).json({ message: "User not found" });
     }
 
     // Update user fields
@@ -183,7 +183,7 @@ const deleteUserById = asyncHandler(async (req, res) => {
       res.status(404).json({ message: "User not found" });
     }
     if (user.isAdmin) {
-      return res.status(403).json({ message: "Cannot delete admin user" });
+      res.status(403).json({ message: "Cannot delete admin user" });
     }
 
     await User.deleteOne({ _id: user._id });
@@ -203,7 +203,7 @@ const getUserById = asyncHandler(async (req, res) => {
   try {
     const user = await User.findById(id).select("-password");
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
+      res.status(404).json({ message: "User not found" });
     }
 
     res.status(200).json({
@@ -225,7 +225,7 @@ const updateUserById = asyncHandler(async (req, res) => {
   try {
     const user = await User.findById(id);
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
+      res.status(404).json({ message: "User not found" });
     }
 
     // Update user fields

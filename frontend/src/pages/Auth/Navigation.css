@@ -11,6 +11,7 @@
 /* Initially hide nav-item-name */
 .nav-item-name {
   display: none;
+  opacity: 0;
   transition: opacity 0.2s ease-in-out; /* Add opacity transition */
 }
 

@@ -13,7 +13,7 @@ import {
 import { FaHeart } from "react-icons/fa";
 import "./Navigation.css";
 
-import { useLoginMutation } from "../../redux/api/usersApiSlice";
+import { useLogoutMutation } from "../../redux/api/usersApiSlice";
 import { logout } from "../../redux/features/auth/authsSlice.js";
 
 const Navigation = () => {
@@ -35,7 +35,7 @@ const Navigation = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [logoutApiCall] = useLoginMutation();
+  const [logoutApiCall] = useLogoutMutation();
 
   const logoutHandler = async () => {
     try {
@@ -67,21 +67,21 @@ const Navigation = () => {
           to="/shop"
           className="flex items-center transition-transform transform hover:translate-x-2"
         >
-          <AiOutlineShopping className="mr-2 mt-12" size={26} />
+          <AiOutlineShopping className="mr-2 mt-12" size={28} />
           <span className="hidden nav-item-name mt-12">Shop</span>
         </Link>
         <Link
           to="/cart"
           className="flex items-center transition-transform transform hover:translate-x-2"
         >
-          <AiOutlineShoppingCart className="mr-2 mt-12" size={26} />
+          <AiOutlineShoppingCart className="mr-2 mt-12" size={27} />
           <span className="hidden nav-item-name mt-12">Cart</span>
         </Link>
         <Link
           to="/favorite"
           className="flex items-center transition-transform transform hover:translate-x-2"
         >
-          <FaHeart className="mr-2 mt-12" size={26} />
+          <FaHeart className="ml-1 mr-2 mt-12" size={22} />
           <span className="hidden nav-item-name mt-12">Favorite</span>
         </Link>
       </div>
@@ -182,26 +182,31 @@ const Navigation = () => {
             </li>
           </ul>
         )}
-      </div>
 
-      <ul>
-        <li>
-          <Link
-            to="/login"
-            className="flex items-center transition-transform transform hover:translate-x-2"
-          >
-            <AiOutlineLogin className="mr-2 mt-12" size={26} />
-            <span className="hidden nav-item-name mt-12">Login</span>
-          </Link>
-          <Link
-            to="/register"
-            className="flex items-center transition-transform transform hover:translate-x-2"
-          >
-            <AiOutlineUserAdd className="mr-2 mt-12" size={26} />
-            <span className="hidden nav-item-name mt-12">Register</span>
-          </Link>
-        </li>
-      </ul>
+        {!userInfo && (
+          <ul>
+            <li>
+              <Link
+                to="/login"
+                className="flex items-center mt-5 transition-transform transform hover:translate-x-2"
+              >
+                <AiOutlineLogin className="mr-2" size={26} />
+                <span className="hidden nav-item-name">Login</span>
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/register"
+                className="flex items-center mt-5 transition-transform transform hover:translate-x-2"
+              >
+                <AiOutlineUserAdd className="mr-2" size={26} />
+                <span className="hidden nav-item-name">Register</span>
+              </Link>
+            </li>
+          </ul>
+        )}
+      </div>
     </div>
   );
 };
