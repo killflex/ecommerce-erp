@@ -1,5 +1,5 @@
-import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
+import { StrictMode } from "react";
 import { Provider } from "react-redux";
 import { createBrowserRouter } from "react-router-dom";
 import { Route, RouterProvider, createRoutesFromElements } from "react-router";

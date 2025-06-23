@@ -31,6 +31,7 @@ const UserList = () => {
       try {
         await deleteUser(id);
         refetch();
+        toast.success("User deleted successfully");
       } catch (error) {
         toast.error(error?.data?.message || error.message);
       }

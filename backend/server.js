@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 
 // Routes
 import userRoutes from "./src/routes/userRoutes.js";
+import categoryRoutes from "./src/routes/categoryRoutes.js";
 
 // Utils
 import connectDB from "./src/config/db.js";
@@ -26,3 +27,4 @@ app.listen(port, () => {
 });
 
 app.use("/api/users", userRoutes);
+app.use("/api/category", categoryRoutes);

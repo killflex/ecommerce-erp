@@ -49,56 +49,59 @@ const Register = () => {
   };
 
   return (
-    <section className="pl-[10rem] flex flex-wrap h-screen">
-      <div className="mr-[4rem] mt-[5rem]">
-        <h1 className="text-2xl font-semibold mb-4">Register</h1>
+    <section className="pl-[10rem] flex flex-col flex-wrap justify-between items-center h-screen w-full">
+      <div className="mt-24">
+        <h1 className="text-2xl font-bold mb-4">Register</h1>
 
-        <form onSubmit={submitHandler} className="container w-[40rem]">
-          <div className="my-[2rem]">
+        <form
+          onSubmit={submitHandler}
+          className="container w-[40rem] mb-4 space-y-6"
+        >
+          <div className="">
             <label
               htmlFor="name"
-              className="block text-sm font-medium text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Name
             </label>
             <input
               type="text"
               id="name"
-              className="mt-1 p-2 rounded w-full"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Enter name"
               value={username}
               onChange={(e) => setName(e.target.value)}
             />
           </div>
 
-          <div className="my-[2rem]">
+          <div className="">
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Email Address
             </label>
             <input
               type="email"
               id="email"
-              className="mt-1 p-2 rounded w-full"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Enter email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
-          <div className="my-[2rem]">
+          <div className="">
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Password
             </label>
             <input
               type="password"
               id="password"
-              className="mt-1 p-2 rounded w-full"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Enter password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -108,14 +111,14 @@ const Register = () => {
           <div className="mb-4  ">
             <label
               htmlFor="confirmPassword"
-              className="block text-sm font-medium text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Confirm Password
             </label>
             <input
               type="password"
               id="confirmPassword"
-              className="mt-1 p-2 rounded w-full"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Confirm password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
@@ -125,7 +128,7 @@ const Register = () => {
           <button
             disabled={isLoading}
             type="submit"
-            className="bg-pink-500 text-white px-4 py-2 rounded cursor-pointer my-[1rem]"
+            className="mt-2 cursor-pointer text-white bg-pink-700 hover:bg-pink-800 focus:ring-4 focus:ring-pink-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-pink-600 dark:hover:bg-pink-700 focus:outline-none dark:focus:ring-pink-800"
           >
             {isLoading ? "Registering..." : "Register"}
           </button>
